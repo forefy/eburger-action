@@ -1,0 +1,37 @@
+name: 'eburger-action'
+
+description: 'The GitHub action to add the eBurger Static Analyzer into your workflow.'
+
+branding:
+  icon: 'book-open'
+  color: 'green'
+
+inputs:
+  path:  
+    description: 'Path of the folder or file to scan (relative to project root)'
+    required: false
+    default: '.'
+  
+  exclude:
+    description: 'Exclude finding severities. e.g. "medium" will turn off medium and low.'
+    required: false
+
+  output_type:
+    description: 'Results output file type.'
+    required: false
+    default: 'sarif'
+
+outputs:
+  sarif:
+    description: 'SARIF output'
+
+  json:
+    description: 'JSON output'	
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.exclude }}
+    - ${{ inputs.output_type }}
