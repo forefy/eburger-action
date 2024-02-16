@@ -3,8 +3,9 @@ name: 'eburger-action'
 description: 'The GitHub action to add the eBurger Static Analyzer into your workflow.'
 
 branding:
-  icon: 'book-open'
-  color: 'green'
+  icon: 'git-pull-request'
+  color: 'red'
+  
 
 inputs:
   path:  
