@@ -1,5 +1,5 @@
 # eBurger GitHub Action
-The GitHub action to add [eBurger](https://github.com/forefy/eburger) into your workflow.
+The GitHub action to add [eburger](https://github.com/forefy/eburger) into your workflow.
 
 For more information check the main repository: https://github.com/forefy/eburger.
 
@@ -22,7 +22,7 @@ jobs:
         with:
           submodules: 'true' # change to 'recursive' if needed
       
-      - name: Run eBurger
+      - name: Run eburger
         id: eburger
         uses: forefy/eburger-action@main # @main is recommended, although for improved stability change to the latest marketplace release (e.g. v1.0.1)
   
