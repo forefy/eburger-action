@@ -24,7 +24,6 @@ action_parser.add_argument("path", help="Path of the folder or file to scan")
 action_parser.add_argument("exclude", nargs="?", help="Exclude finding severities")
 action_parser.add_argument(
     "automatic_selection",
-    nargs="?",
     type=int,
     help="Automatic selection from multiple projects in the same repo",
 )

@@ -17,14 +17,14 @@ jobs:
       # contents: read
       
     steps:
-      - name:
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: 'true' # change to 'recursive' if needed
       
       - name: Run eBurger
         id: eburger
-        uses: forefy/eburger-action@v1 # change to @main for quicker updates but less stability
+        uses: forefy/eburger-action@main # change to latest marketplace release (e.g. v.1.0.1) for improved stability
   
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
