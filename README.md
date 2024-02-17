@@ -24,7 +24,7 @@ jobs:
       
       - name: Run eBurger
         id: eburger
-        uses: forefy/eburger-action@main # change to latest marketplace release (e.g. v.1.0.1) for improved stability
+        uses: forefy/eburger-action@main # @main is recommended, although for improved stability change to the latest marketplace release (e.g. v.1.0.1)
   
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
