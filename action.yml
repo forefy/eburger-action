@@ -17,7 +17,7 @@ inputs:
     required: false
   
   automatic_selection:
-    description: 'If multiple projects are present within the eburger working directory, choose the N'th option without prompting.'
+    description: 'If multiple projects are present within the eburger working directory, choose the Nth option without prompting.'
     required: false
     default: 1
 
