@@ -21,8 +21,12 @@ def set_multiline_output(name, value):
 # Parse action inputs
 action_parser = argparse.ArgumentParser(description="eburger-action")
 action_parser.add_argument("path", help="Path of the folder or file to scan")
+action_parser.add_argument("exclude", nargs="?", help="Exclude finding severities")
 action_parser.add_argument(
-    "exclude", nargs="?", default="", help="Exclude finding severities"
+    "automatic_selection",
+    nargs="?",
+    type=int,
+    help="Automatic selection from multiple projects in the same repo",
 )
 action_parser.add_argument("output_type", help="Results output file type")
 action_args = action_parser.parse_args()
@@ -37,6 +41,7 @@ args.solidity_file_or_folder = action_args.path
 args.output = f"eburger-output.{action_args.output_type}"
 args.debug = True
 args.relative_file_paths = True
+args.auto_selection = action_args.automatic_selection
 
 if action_args.exclude:
     args.no = expand_excludes(action_args.exclude)

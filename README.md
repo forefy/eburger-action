@@ -17,13 +17,14 @@ jobs:
       # contents: read
       
     steps:
-      - uses: actions/checkout@v4
-      - run: git submodule init
-      - run: git submodule update
+      - name:
+        uses: actions/checkout@v4
+        with:
+          submodules: 'true' # change to 'recursive' if needed
       
       - name: Run eBurger
-        uses: forefy/eburger-action@main
         id: eburger
+        uses: forefy/eburger-action@v1 # change to @main for quicker updates but less stability
   
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
@@ -33,15 +34,16 @@ jobs:
 
 ## Inputs
 
-| Input            | Description                                                               | Required | Default | 
-|------------------|---------------------------------------------------------------------------|----------|---------|
-| `path`           | Path of the folder or file to scan (relative to project root)             | `false`  | `.`     |
-| `exclude`        | Exclude finding severities. e.g. "medium" will turn off medium and low.   | `false`  |         |
-| `output_type`    | Results output file type.                                                 | `false`  | `sarif` |
+| Input                 | Description                                                             | Required | Default | 
+|-----------------------|-------------------------------------------------------------------------|----------|---------|
+| `path`                | Path of the folder or file to scan (relative to project root)           | `false`  | `.`     |
+| `exclude`             | Exclude finding severities. e.g. "medium" will turn off medium and low  | `false`  |         |
+| `automatic_selection` | If there are multiple projects in the repo, choose the N'th option      | `false`  | `1`     |
+| `output_type`         | Results output file type                                                | `false`  | `sarif` |
 
 ## Outputs
 
 | Output           | Description                                                               |
 |------------------|---------------------------------------------------------------------------|
-| `sarif`          | SARIF output                                                              |
+| `sarif`          | SARIF output (recommended)                                                |
 | `json`           | JSON output                                                               |

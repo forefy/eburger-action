@@ -15,6 +15,11 @@ inputs:
   exclude:
     description: 'Exclude finding severities. e.g. "medium" will turn off medium and low.'
     required: false
+  
+  automatic_selection:
+    description: 'If multiple projects are present within the eburger working directory, choose the N'th option without prompting.'
+    required: false
+    default: 1
 
   output_type:
     description: 'Results output file type.'
@@ -34,4 +39,5 @@ runs:
   args:
     - ${{ inputs.path }}
     - ${{ inputs.exclude }}
+    - ${{ inputs.automatic_selection }}
     - ${{ inputs.output_type }}
